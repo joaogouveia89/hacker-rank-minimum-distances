@@ -52,7 +52,7 @@ public class RunSolution{
 
 		currentLine = 0;
 
-		while((st = brInput01.readLine()) != null){
+		while((st = brInput02.readLine()) != null){
 			if(currentLine == 1){
 				a02 = Arrays
 					.stream(st.split(" "))
