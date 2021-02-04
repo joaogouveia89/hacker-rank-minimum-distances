@@ -4,6 +4,7 @@ require './minimum_distances'
 #input parsing and reading
 input00 = File.open("../../test-cases/input/input00.txt")
 input01 = File.open("../../test-cases/input/input01.txt")
+input02 = File.open("../../test-cases/input/input02.txt")
 
 data = input00.map(&:chomp)
 
@@ -13,10 +14,15 @@ data = input01.map(&:chomp)
 
 a01 = data[1].split(" ").map(&:to_i)
 
+data = input02.map(&:chomp)
+
+a02 = data[1].split(" ").map(&:to_i)
+
 # problem application
 start = Time.now
 response00 = minimum_distances a00
 response01 = minimum_distances a01
+response02 = minimum_distances a02
 finish = Time.now
 
 puts("solved all the test cases in " + (1000 * (finish - start)).round(2).to_s + "ms")
@@ -25,12 +31,16 @@ puts("solved all the test cases in " + (1000 * (finish - start)).round(2).to_s +
 start = Time.now
 output00File = File.open("../../test-cases/output/output00.txt")
 output01File = File.open("../../test-cases/output/output01.txt")
+output02File = File.open("../../test-cases/output/output02.txt")
 
 data = output00File.map(&:chomp)
 output00 = data[0].to_i
 
 data = output01File.map(&:chomp)
 output01 = data[0].to_i
+
+data = output02File.map(&:chomp)
+output02 = data[0].to_i
 
 if response00 === output00
 	puts "INPUT 00".green
@@ -42,4 +52,10 @@ if response01 === output01
 	puts "INPUT 01".green
 else
 	puts "INPUT 01".red
+end
+
+if response02 === output02
+	puts "INPUT 02".green
+else
+	puts "INPUT 02".red
 end
